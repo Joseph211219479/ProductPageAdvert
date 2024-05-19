@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
             <item name="deps" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Advert Information</item>
-        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="label" xsi:type="string" translate="true">Store Locator: Manage Store</item>
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
         </item>
-        <item name="buttons" xsi:type="array">
-           <!-- <item name="back" xsi:type="string">Sozo\ProductPageAdvert\Block\Adminhtml\Advert\Edit\BackButton</item>
-            <item name="delete" xsi:type="string">Sozo\ProductPageAdvert\Block\Adminhtml\Advert\Edit\DeleteButton</item>
-            <item name="reset" xsi:type="string">Sozo\ProductPageAdvert\Block\Adminhtml\Advert\Edit\ResetButton</item>
-            <item name="save" xsi:type="string">Sozo\ProductPageAdvert\Block\Adminhtml\Advert\Edit\SaveButton</item>-->
-        </item>
     </argument>
 
-
+    <settings>
+        <buttons>
+          <!--  <button name="delete" class="Joseph\StoreLocator\Block\Adminhtml\Store\Edit\DeleteButton"/>
+            <button name="reset" class="Joseph\StoreLocator\Block\Adminhtml\Store\Edit\ResetButton"/>
+            <button name="save" class="Joseph\StoreLocator\Block\Adminhtml\Store\Edit\SaveButton"/>-->
+            <button name="back">
+                <url path="*/*/"/>
+                <class>back</class>
+                <label translate="true">Back</label>
+            </button>
+        </buttons>
+        <namespace>storelocator_store_form</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>productpageadvert_advert_form.productpageadvert_advert_form_data_source</dep>
+        </deps>
+    </settings>
 
     <dataSource name="productpageadvert_advert_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Sozo\ProductPageAdvert\Ui\DataProvider\Advert\FormDataProvider</argument>
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">productpageadvert_advert_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">entity_id</argument>
         </argument>
+
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="submit_url" xsi:type="url" path="*/advert/save"/>
@@ -50,14 +62,15 @@
                 </item>
             </argument>
         </field>
-        <field name="image_link">
+        <field name="image_path">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="label" xsi:type="string" translate="true">Image Link</item>
                     <item name="sortOrder" xsi:type="number">10</item>
-                    <item name="dataScope" xsi:type="string">image_link</item>
+                    <item name="source" xsi:type="string">advert</item>
+
                 </item>
             </argument>
         </field>
@@ -68,7 +81,8 @@
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="label" xsi:type="string" translate="true">Heading</item>
                     <item name="sortOrder" xsi:type="number">20</item>
-                    <item name="dataScope" xsi:type="string">heading</item>
+                    <item name="source" xsi:type="string">advert</item>
+
                 </item>
             </argument>
         </field>
@@ -79,7 +93,8 @@
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="label" xsi:type="string" translate="true">Message</item>
                     <item name="sortOrder" xsi:type="number">30</item>
-                    <item name="dataScope" xsi:type="string">message</item>
+                    <item name="source" xsi:type="string">advert</item>
+
                 </item>
             </argument>
         </field>
@@ -90,7 +105,7 @@
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="label" xsi:type="string" translate="true">Url Link</item>
                     <item name="sortOrder" xsi:type="number">30</item>
-                    <item name="dataScope" xsi:type="string">url_link</item>
+                    <item name="source" xsi:type="string">advert</item>
                 </item>
             </argument>
         </field>

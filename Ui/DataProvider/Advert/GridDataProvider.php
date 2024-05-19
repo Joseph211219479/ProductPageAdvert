@@ -1,25 +1,41 @@
 <?php
 namespace Sozo\ProductPageAdvert\Ui\DataProvider\Advert;
 
-use Magento\Ui\DataProvider\AbstractDataProvider;
-use Sozo\ProductPageAdvert\Model\ResourceModel\Advert\CollectionFactory;
+use Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider;
+use Magento\Framework\Api\Search\SearchCriteriaBuilder;
+use Magento\Framework\Api\FilterBuilder;
+use Magento\Framework\View\Element\UiComponent\DataProvider\ReportingFactory;
 
-class GridDataProvider extends AbstractDataProvider
+class GridDataProvider extends DataProvider
 {
     public function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $collectionFactory,
+        ReportingFactory $reportingFactory,
+        SearchCriteriaBuilder $searchCriteriaBuilder,
+        FilterBuilder $filterBuilder,
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $collectionFactory->create();
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
+        parent::__construct(
+            $name,
+            $primaryFieldName,
+            $requestFieldName,
+            $reportingFactory->create(),
+            $searchCriteriaBuilder,
+            $filterBuilder,
+            $meta,
+            $data
+        );
     }
 
     public function getData()
     {
-        return $this->collection->getData();
+        if (!$this->getCollection()->isLoaded()) {
+            $this->getCollection()->load();
+        }
+        return $this->getCollection()->toArray();
     }
+
 }
