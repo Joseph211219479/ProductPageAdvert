@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="admin">
         <route id="pdpadvert" frontName="pdpadvert">
-            <module name="Sozo_ProductPageAdvert"/>
+            <module name="Sozo_ProductPageAdvert" before="Magento_Backend"/>
         </route>
     </router>
 </config>

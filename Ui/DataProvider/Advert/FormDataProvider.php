@@ -1,24 +1,21 @@
 <?php
-namespace Sozo\ProductPageAdvert\Model\Advert;
+namespace Sozo\ProductPageAdvert\Ui\DataProvider\Advert;
 
 use Sozo\ProductPageAdvert\Model\ResourceModel\Advert\CollectionFactory;
 use Magento\Framework\App\Request\DataPersistorInterface;
 use Magento\Ui\DataProvider\AbstractDataProvider;
 
-class DataProvider extends AbstractDataProvider
+class FormDataProvider extends AbstractDataProvider
 {
     protected $collection;
-    protected DataPersistorInterface $dataPersistor;
-    /**
-     * @var
-     */
+    protected $dataPersistor;
     protected $loadedData;
 
     /**
-     * @param $name
-     * @param $primaryFieldName
-     * @param $requestFieldName
-     * @param CollectionFactory $advertCollectionFactory
+     * @param string $name
+     * @param string $primaryFieldName
+     * @param string $requestFieldName
+     * @param CollectionFactory $collectionFactory
      * @param DataPersistorInterface $dataPersistor
      * @param array $meta
      * @param array $data
@@ -27,14 +24,13 @@ class DataProvider extends AbstractDataProvider
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $advertCollectionFactory,
+        CollectionFactory $collectionFactory,
         DataPersistorInterface $dataPersistor,
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $advertCollectionFactory->create();
+        $this->collection = $collectionFactory->create();
         $this->dataPersistor = $dataPersistor;
-
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
@@ -52,7 +48,7 @@ class DataProvider extends AbstractDataProvider
         }
         $data = $this->dataPersistor->get('sozo_productpageadvert_advert');
         if (!empty($data)) {
-            $advert = $this->collection->getEmptyItem();
+            $advert = $this->collection->getNewEmptyItem();
             $advert->setData($data);
             $this->loadedData[$advert->getId()] = $advert->getData();
             $this->dataPersistor->clear('sozo_productpageadvert_advert');

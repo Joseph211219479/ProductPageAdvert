@@ -5,7 +5,7 @@ use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class NewAction extends Action
 {
     protected $resultPageFactory;
 
@@ -18,8 +18,8 @@ class Index extends Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Sozo_ProductPageAdvert::pdp');
-        $resultPage->getConfig()->getTitle()->prepend(__('Adverts'));
+        //$resultPage->setActiveMenu('Sozo_ProductPageAdvert::pdp');
+        $resultPage->getConfig()->getTitle()->prepend(__('Create New Advert.'));
 
         return $resultPage;
     }

@@ -4,8 +4,8 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Magento_Backend::stores">
-                        <resource id="Sozo_ProductPageAdvert::config" title="Product Page Advert Configuration" sortOrder="100" />
+                <resource id="Magento_Backend::marketing">
+                        <resource id="Sozo_ProductPageAdvert::config" title="Product Page Advert" sortOrder="100" />
                 </resource>
             </resource>
         </resources>
