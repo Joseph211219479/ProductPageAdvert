@@ -8,6 +8,10 @@
             <item name="deps" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Store Locator: Manage Store</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">advert_form</item>
+        </item>
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
         </item>
@@ -24,7 +28,7 @@
                 <label translate="true">Back</label>
             </button>
         </buttons>
-        <namespace>storelocator_store_form</namespace>
+        <namespace>productpageadvert_advert_form</namespace>
         <dataScope>data</dataScope>
         <deps>
             <dep>productpageadvert_advert_form.productpageadvert_advert_form_data_source</dep>
@@ -32,6 +36,12 @@
     </settings>
 
     <dataSource name="productpageadvert_advert_form_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">productpageadvert_advert_form_data_source</argument>
@@ -59,6 +69,8 @@
                     <item name="dataType" xsi:type="string">number</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">advert</item>
+                    <item name="dataScope" xsi:type="string">entity_id</item>
+
                 </item>
             </argument>
         </field>
@@ -70,7 +82,7 @@
                     <item name="label" xsi:type="string" translate="true">Image Link</item>
                     <item name="sortOrder" xsi:type="number">10</item>
                     <item name="source" xsi:type="string">advert</item>
-
+                    <item name="dataScope" xsi:type="string">image_path</item>
                 </item>
             </argument>
         </field>
@@ -82,6 +94,8 @@
                     <item name="label" xsi:type="string" translate="true">Heading</item>
                     <item name="sortOrder" xsi:type="number">20</item>
                     <item name="source" xsi:type="string">advert</item>
+                    <item name="dataScope" xsi:type="string">heading</item>
+
 
                 </item>
             </argument>
@@ -94,6 +108,8 @@
                     <item name="label" xsi:type="string" translate="true">Message</item>
                     <item name="sortOrder" xsi:type="number">30</item>
                     <item name="source" xsi:type="string">advert</item>
+                    <item name="dataScope" xsi:type="string">message</item>
+
 
                 </item>
             </argument>
@@ -106,6 +122,8 @@
                     <item name="label" xsi:type="string" translate="true">Url Link</item>
                     <item name="sortOrder" xsi:type="number">30</item>
                     <item name="source" xsi:type="string">advert</item>
+                    <item name="dataScope" xsi:type="string">url_link</item>
+
                 </item>
             </argument>
         </field>
