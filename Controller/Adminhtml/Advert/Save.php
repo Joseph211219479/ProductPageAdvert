@@ -63,11 +63,20 @@ class Save extends Action
                 }
             }
 
-            $model->setData($data['advert']);
+            //$model->setData($data['advert']);
+            //todo move to private function.
+            $model->setHeading($data['advert']['heading']);
+            $model->setMessage($data['advert']['message']);
+            //non required fields
+            if(isset($data['advert']['image_path'])){
+                $model->setImagePath($data['advert']['image_path']);
+            }
+            if(isset($data['advert']['url_link'])){
+                $model->setImagePath($data['advert']['url_link']);
+            }
 
             $this->advertRepository->save($model);
             $this->messageManager->addSuccessMessage(__('The advert has been saved.'));
-            //$this->_getSession()->setFormData(false);
 
 
             $this->_redirect('pdpadvert/advert/index');

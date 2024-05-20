@@ -73,7 +73,7 @@
             </argument>
         </field>
 
-   <!--     <field name="image_path">
+        <field name="image_path">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
@@ -92,7 +92,7 @@
                     </item>
                 </item>
             </argument>
-        </field>-->
+        </field>
 
         <field name="heading">
             <argument name="data" xsi:type="array">
@@ -103,8 +103,6 @@
                     <item name="sortOrder" xsi:type="number">20</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">heading</item>
-
-
                 </item>
             </argument>
         </field>
