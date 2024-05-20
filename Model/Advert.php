@@ -14,21 +14,43 @@ class Advert extends AbstractModel implements AdvertInterface
 
     public function getHeading()
     {
-        // TODO: Implement getHeading() method.
+        return $this->getData(self::HEADING);
     }
 
     public function setHeading($heading)
     {
-        // TODO: Implement setHeading() method.
+        $this->setData(self::HEADING, $heading);
     }
 
     public function getMessage()
     {
-        // TODO: Implement getMessage() method.
+        return $this->getData(self::MESSAGE);
+
     }
 
     public function setMessage($message)
     {
-        // TODO: Implement setMessage() method.
+        $this->setData(self::MESSAGE, $message);
     }
+
+    public function getImagePath()
+    {
+        return $this->getData(self::IMAGE_PATH);
+    }
+
+    public function setImagePath($image_path)
+    {
+        $this->setData(self::IMAGE_PATH, $image_path);
+    }
+
+    public function getUrlLink()
+    {
+        return $this->getData(self::URL_LINK);
+    }
+
+    public function setUrlLink($url_link)
+    {
+        $this->setData(self::URL_LINK, $url_link);
+    }
+
 }

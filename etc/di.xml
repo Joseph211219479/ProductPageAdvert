@@ -17,13 +17,22 @@
             <argument name="collections" xsi:type="array">
                 <item name="productpageadvert_advert_listing_data_source" xsi:type="string">Sozo\ProductPageAdvert\Model\ResourceModel\Advert\Grid\Collection</item>
                 <item name="productpageadvert_advert_form_data_source" xsi:type="string">Sozo\ProductPageAdvert\Model\ResourceModel\Advert\Collection</item>
-
             </argument>
         </arguments>
     </type>
 
 
-
+ <!--   <referenceContainer name="content">
+        <uiComponent name="productpageadvert_advert_form">
+            <argument name="data" xsi:type="array">
+                <item name="buttons" xsi:type="array">
+                    <item name="delete" xsi:type="string">Sozo\ProductPageAdvert\Block\Adminhtml\Advert\DeleteButton</item>
+                    <item name="save" xsi:type="string">Sozo\ProductPageAdvert\Block\Adminhtml\Advert\SaveButton</item>
+                </item>
+            </argument>
+        </uiComponent>
+    </referenceContainer>
+-->
 
   <!--  <virtualType name="Sozo\ProductPageAdvert\Ui\DataProvider\Advert\GridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>

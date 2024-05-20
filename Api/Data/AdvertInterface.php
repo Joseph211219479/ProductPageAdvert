@@ -3,6 +3,12 @@ namespace Sozo\ProductPageAdvert\Api\Data;
 
 interface AdvertInterface
 {
+    const ADVERT_ID = 'entity_id';
+    const HEADING = 'heading';
+    const MESSAGE = 'message';
+    const IMAGE_PATH = 'image_path';
+    const URL_LINK = 'url_link';
+
     /**
      * Get Advert ID
      *
@@ -47,5 +53,12 @@ interface AdvertInterface
      * @return $this
      */
     public function setMessage($message);
+
+
+    public function getImagePath();
+    public function setImagePath($image_path);
+
+    public function getUrlLink();
+    public function setUrlLink($url_link);
 
 }
