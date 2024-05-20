@@ -2,7 +2,6 @@
 namespace Sozo\ProductPageAdvert\Model;
 
 use Magento\Framework\Model\AbstractModel;
-use Sozo\ProductPageAdvert\Model\ResourceModel\Advert as AdvertResourceModel;
 use Sozo\ProductPageAdvert\Api\Data\AdvertInterface;
 
 class Advert extends AbstractModel implements AdvertInterface

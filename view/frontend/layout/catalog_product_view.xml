@@ -4,7 +4,7 @@
         <css src="Sozo_ProductPageAdvert::css/pdp_advert.css"/>
     </head>
     <body>
-        <referenceContainer name="product.info.main">
+        <referenceContainer name="product.info.form.content">
             <block class="Magento\Framework\View\Element\Template" name="product.page.advert" template="Sozo_ProductPageAdvert::pdp_advert.phtml" after="product.info.addtocart">
                 <arguments>
                     <argument name="view_model" xsi:type="object">Sozo\ProductPageAdvert\ViewModel\PdpAdvert</argument>

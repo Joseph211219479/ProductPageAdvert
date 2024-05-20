@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
 
-
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
             <item name="provider" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
@@ -68,7 +67,6 @@
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">entity_id</item>
-
                 </item>
             </argument>
         </field>
@@ -106,6 +104,7 @@
                 </item>
             </argument>
         </field>
+
         <field name="message">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -115,11 +114,10 @@
                     <item name="sortOrder" xsi:type="number">30</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">message</item>
-
-
                 </item>
             </argument>
         </field>
+
         <field name="url_link">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -129,7 +127,6 @@
                     <item name="sortOrder" xsi:type="number">30</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">url_link</item>
-
                 </item>
             </argument>
         </field>

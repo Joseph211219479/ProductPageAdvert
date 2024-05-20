@@ -5,22 +5,36 @@ namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
 use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\Filesystem;
+use Magento\MediaStorage\Model\File\UploaderFactory;
 
 class Upload extends Action
 {
+    /**
+     * @var UploaderFactory
+     */
     protected $uploaderFactory;
+
+    /**
+     * @var Filesystem
+     */
     protected $filesystem;
 
-    public function __construct(
-        Action\Context $context,
-        \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory,
-        \Magento\Framework\Filesystem $filesystem
-    ) {
+    /**
+     * @param Action\Context $context
+     * @param UploaderFactory $uploaderFactory
+     * @param Filesystem $filesystem
+     */
+    public function __construct(Action\Context $context, UploaderFactory $uploaderFactory, Filesystem $filesystem)
+    {
         parent::__construct($context);
         $this->uploaderFactory = $uploaderFactory;
         $this->filesystem = $filesystem;
     }
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Json|\Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         try {
