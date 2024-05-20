@@ -32,7 +32,12 @@ class AdvertRepository implements AdvertRepositoryInterface
 
     public function save(AdvertInterface $advert)
     {
-        $this->advertResource->save($advert);
+        try {
+            $this->advertResource->save($advert);
+        } catch (\Exception $exception) {
+            throw new CouldNotSaveException(__($exception->getMessage()));
+        }
+
         return $advert;
     }
 

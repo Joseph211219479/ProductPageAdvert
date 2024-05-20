@@ -7,7 +7,7 @@
             <item name="provider" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
             <item name="deps" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Store Locator: Manage Store</item>
+        <item name="label" xsi:type="string" translate="true">Advert: Manage Advert</item>
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
             <item name="namespace" xsi:type="string">advert_form</item>
@@ -27,6 +27,7 @@
                 <label translate="true">Back</label>
             </button>
         </buttons>
+
         <namespace>productpageadvert_advert_form</namespace>
         <dataScope>data</dataScope>
         <deps>
@@ -48,11 +49,9 @@
             <argument name="requestFieldName" xsi:type="string">entity_id</argument>
         </argument>
 
-        <argument name="data" xsi:type="array">
-            <item name="config" xsi:type="array">
-                <item name="submit_url" xsi:type="url" path="*/advert/save"/>
-            </item>
-        </argument>
+        <settings>
+            <submitUrl path="pdpadvert/advert/save"/>
+        </settings>
     </dataSource>
 
     <fieldset name="advert">
@@ -74,7 +73,7 @@
             </argument>
         </field>
 
-        <field name="image_path">
+   <!--     <field name="image_path">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
@@ -93,7 +92,7 @@
                     </item>
                 </item>
             </argument>
-        </field>
+        </field>-->
 
         <field name="heading">
             <argument name="data" xsi:type="array">

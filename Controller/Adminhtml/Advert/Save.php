@@ -7,27 +7,45 @@ use Magento\Backend\App\Action\Context;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Sozo\ProductPageAdvert\Model\AdvertFactory;
-use Sozo\ProductPageAdvert\Model\ResourceModel\Advert as AdvertResource;
+use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface ;
+
 
 class Save extends Action
 {
-    protected $advertFactory;
-    protected $advertResource;
+    /**
+     * @var AdvertFactory
+     */
+    protected AdvertFactory $advertFactory;
 
+    /**
+     * @var AdvertRepositoryInterface
+     */
+    protected AdvertRepositoryInterface $advertRepository;
+
+    /**
+     * @param Context $context
+     * @param AdvertFactory $advertFactory
+     * @param AdvertRepositoryInterface $advertRepository
+     */
     public function __construct(
         Context $context,
         AdvertFactory $advertFactory,
-        AdvertResource $advertResource
+        AdvertRepositoryInterface $advertRepository
     ) {
         parent::__construct($context);
         $this->advertFactory = $advertFactory;
-        $this->advertResource = $advertResource;
+        $this->advertRepository = $advertRepository;
     }
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|void
+     * @throws NoSuchEntityException
+     */
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-        if (!$data) {
+        if (!$data || !isset($data['advert']) ) {
+            throw new NoSuchEntityException(__('Unabele to save Advert.'));
             $this->_redirect('*/*/');
             return;
         }
@@ -37,31 +55,31 @@ class Save extends Action
         try {
             $model = $this->advertFactory->create();
             if ($id) {
-                $this->advertResource->load($model, $id);
+                $model = $this->advertRepository->getById($id);
                 if (!$model->getId()) {
                     throw new NoSuchEntityException(__('The advert no longer exists.'));
+                    $this->_redirect('pdpadvert/advert/index');
+                    return;
                 }
             }
 
-            $model->setData($data);
+            $model->setData($data['advert']);
 
-            $this->advertResource->save($model);
+            $this->advertRepository->save($model);
             $this->messageManager->addSuccessMessage(__('The advert has been saved.'));
-            $this->_getSession()->setFormData(false);
+            //$this->_getSession()->setFormData(false);
 
-            if ($this->getRequest()->getParam('back')) {
-                $this->_redirect('*/*/edit', ['id' => $model->getId()]);
-                return;
-            }
 
-            $this->_redirect('*/*/');
+            $this->_redirect('pdpadvert/advert/index');
+            //return;
+
         } catch (LocalizedException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(__('Something went wrong while saving the advert.'));
         }
 
-        $this->_getSession()->setFormData($data);
-        $this->_redirect('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
+       // $this->_getSession()->setFormData($data);
+       // $this->_redirect('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
     }
 }

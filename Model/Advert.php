@@ -9,9 +9,12 @@ class Advert extends AbstractModel implements AdvertInterface
 {
     protected function _construct()
     {
-        $this->_init(AdvertResourceModel::class);
+        $this->_init('Sozo\ProductPageAdvert\Model\ResourceModel\Advert');
     }
 
+    /**
+     * @return |string|null
+     */
     public function getHeading()
     {
         return $this->getData(self::HEADING);
