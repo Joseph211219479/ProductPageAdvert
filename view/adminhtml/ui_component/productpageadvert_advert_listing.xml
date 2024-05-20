@@ -76,5 +76,16 @@
                 <sorting>asc</sorting>
             </settings>
         </column>
+
+        <actionsColumn name="actions" class="Sozo\ProductPageAdvert\Ui\Component\Advert\Listing\Column\Actions" sortOrder="200">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+            <!--<argument name="viewUrl" xsi:type="string">catalog/category/view</argument>-->
+        </actionsColumn>
     </columns>
 </listing>

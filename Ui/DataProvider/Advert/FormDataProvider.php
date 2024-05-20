@@ -6,6 +6,7 @@ use Magento\Framework\Api\Search\SearchCriteriaBuilder;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\View\Element\UiComponent\DataProvider\ReportingFactory;
 
+//todo delete, dont need it anymore, using virtual types
 class FormDataProvider extends DataProvider
 {
     public function __construct(

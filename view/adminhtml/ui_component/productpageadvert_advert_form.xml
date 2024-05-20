@@ -19,9 +19,8 @@
 
     <settings>
         <buttons>
-          <!--  <button name="delete" class="Joseph\StoreLocator\Block\Adminhtml\Store\Edit\DeleteButton"/>
-            <button name="reset" class="Joseph\StoreLocator\Block\Adminhtml\Store\Edit\ResetButton"/>
-            <button name="save" class="Joseph\StoreLocator\Block\Adminhtml\Store\Edit\SaveButton"/>-->
+            <button name="delete" class="Sozo\ProductPageAdvert\Block\Adminhtml\Advert\Edit\DeleteButton"/>
+            <button name="save" class="Sozo\ProductPageAdvert\Block\Adminhtml\Advert\Edit\SaveButton"/>
             <button name="back">
                 <url path="*/*/"/>
                 <class>back</class>
@@ -74,18 +73,25 @@
                 </item>
             </argument>
         </field>
+
         <field name="image_path">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="label" xsi:type="string" translate="true">Image Link</item>
+                    <item name="formElement" xsi:type="string">fileUploader</item>
+                    <item name="label" xsi:type="string" translate="true">Image</item>
                     <item name="sortOrder" xsi:type="number">10</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">image_path</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                    <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
+                    <item name="uploaderConfig" xsi:type="array">
+                        <item name="url" xsi:type="url" path="catalog/product_gallery/upload"/>
+                    </item>
                 </item>
             </argument>
         </field>
+
         <field name="heading">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
