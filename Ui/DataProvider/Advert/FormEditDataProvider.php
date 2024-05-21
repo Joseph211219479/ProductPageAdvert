@@ -17,7 +17,6 @@ class FormEditDataProvider extends AbstractDataProvider
     protected $advertRepository;
     protected $file;
 
-
     public function __construct(
         $name,
         $primaryFieldName,

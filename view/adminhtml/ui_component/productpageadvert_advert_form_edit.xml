@@ -124,6 +124,7 @@
                     <item name="sortOrder" xsi:type="number">30</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">url_link</item>
+                    <item name="notice" xsi:type="string" translate="true">Please ensure the URL starts with http:// or https:// if linking to another website.</item>
                 </item>
             </argument>
         </field>
