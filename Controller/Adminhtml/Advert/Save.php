@@ -49,12 +49,9 @@ class Save extends Action
             return;
         }
 
-        //$id = $this->getRequest()->getParam('id');
-
         try {
             $model = $this->advertFactory->create();
 
-            //todo do not need this anymore, handle edit in its own class
             if ($data['advert']['entity_id']  !== '') {
                 $model = $this->advertRepository->getById($data['advert']['entity_id']);
                 if (!$model->getId()) {
@@ -64,13 +61,14 @@ class Save extends Action
                 }
             }
 
-            //$model->setData($data['advert']);
-            // todo move to private function.
             $model->setHeading($data['advert']['heading']);
             $model->setMessage($data['advert']['message']);
+
             //non required fields
             if(isset($data['advert']['imagePath'])){
-                $model->setImagePath($data['advert']['imagePath'][0]['url']);
+                if(!isset($data['advert']['entity_id'])){//todo this is just to test updates while the image uploader does not populate saved image.
+                    $model->setImagePath($data['advert']['imagePath'][0]['url']);
+                }
             }
             if(isset($data['advert']['url_link'])){
                 $model->setUrlLink($data['advert']['url_link']);
@@ -85,7 +83,5 @@ class Save extends Action
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(__('Something went wrong while saving the advert.'));
         }
-       // $this->_getSession()->setFormData($data);
-       // $this->_redirect('*/*/edit', ['id' => $this->getRequest()->getParam('id')]);
     }
 }

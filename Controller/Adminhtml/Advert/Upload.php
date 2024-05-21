@@ -46,7 +46,7 @@ class Upload extends Action
             $fileId = "imagePath";
 
             if (!isset($_FILES[$fileId])) {
-                //this is done because magento core expects data in strings but ui uploader returns it in arrays
+                //this is done because magento core expects data in strings but ui uploader returns data in arrays
                 $_FILES[$fileId] = [
                     'name' => $_FILES["advert"]['name']['imagePath'],
                     'type' => $_FILES["advert"]['type']['imagePath'],
