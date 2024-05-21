@@ -40,9 +40,9 @@ class Advert extends AbstractModel implements AdvertInterface
         return $this->getData(self::IMAGE_PATH);
     }
 
-    public function setImagePath($image_path)
+    public function setImagePath($imagePath)
     {
-        $this->setData(self::IMAGE_PATH, $image_path);
+        $this->setData(self::IMAGE_PATH, $imagePath);
     }
 
     public function getUrlLink()

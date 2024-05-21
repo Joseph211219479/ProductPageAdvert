@@ -8,7 +8,10 @@
 
 .advert-container .image-container {
     flex: 0 0 auto; /* Don't grow, don't shrink */
-    margin-right: 20px; /* Adjust as needed */
+    margin-right: 20px;
+    max-width: 30%; /* Image will take up to 30% of the container's width */
+    max-height: 150px;
+    margin-right: 20px;
 }
 
 .advert-container .content-container {

@@ -29,9 +29,7 @@ if ($productViewBlock && $productViewBlock->getProduct()) {
     <div class="image-container">
 
 
-        <img src="http://friendlychef.be:9002/static/version1716150940/frontend/Magento/luma/en_US/images/logo.svg" alt="Image"> <!-- todo hard coded -->
-
-
+        <?php if($advertData['imagePath'] != ''){echo " <img src='{$advertData['imagePath']}' alt='Image'> " ;} ?>
 
     </div>
     <div class="content-container">

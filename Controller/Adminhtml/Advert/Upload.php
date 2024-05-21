@@ -11,18 +11,38 @@ class Upload extends Action
 {
     protected $imageUploader;
 
+    protected $uploaderFactory;
+
+
     public function __construct(
         Context $context,
-        ImageUploader $imageUploader
+        ImageUploader $imageUploader,
+        \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory,
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
+
+        $this->uploaderFactory = $uploaderFactory;
     }
 
     public function execute()
     {
         try {
-            $result = $this->imageUploader->upload('image_path');
+            $fileId = "imagePath";
+
+            if (!isset($_FILES[$fileId])) {
+                //this is done because magento core expects data in strings but ui uploader returns it in arrays
+                $_FILES[$fileId] = [
+                    'name' => $_FILES["advert"]['name']['imagePath'],
+                    'type' => $_FILES["advert"]['type']['imagePath'],
+                    'tmp_name' => $_FILES["advert"]['tmp_name']['imagePath'],
+                    'error' => $_FILES["advert"]['error']['imagePath'],
+                    'size' => $_FILES["advert"]['size']['imagePath'],
+                    'full_path' => $_FILES["advert"]['full_path']['imagePath']
+                ];
+            }
+
+            $result = $this->imageUploader->upload($fileId);
 
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),

@@ -4,7 +4,7 @@
         <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
         <column xsi:type="varchar" name="heading" nullable="false" length="255" comment="The advert heading."/>
         <column xsi:type="varchar" name="message" nullable="false" length="255" comment="Advert message."/>
-        <column xsi:type="varchar" name="image_path" nullable="true" length="255" comment="Relative path to where image is stored"/>
+        <column xsi:type="varchar" name="imagePath" nullable="true" length="255" comment="Relative path to where image is stored"/>
         <column xsi:type="varchar" name="url_link" nullable="true" length="255" comment="LInk Url."/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="entity_id"/>

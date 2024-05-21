@@ -69,11 +69,11 @@ class Save extends Action
             $model->setHeading($data['advert']['heading']);
             $model->setMessage($data['advert']['message']);
             //non required fields
-            if(isset($data['advert']['image_path'])){
-                $model->setImagePath($data['advert']['image_path']);
+            if(isset($data['advert']['imagePath'])){
+                $model->setImagePath($data['advert']['imagePath'][0]['url']);
             }
             if(isset($data['advert']['url_link'])){
-                $model->setImagePath($data['advert']['url_link']);
+                $model->setUrlLink($data['advert']['url_link']);
             }
 
             $this->advertRepository->save($model);

@@ -39,7 +39,6 @@
                 <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
             </item>
         </argument>
-
     </dataSource>
 
     <columns name="productpageadvert_advert_columns">

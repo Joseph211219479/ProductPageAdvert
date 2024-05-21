@@ -44,7 +44,7 @@ class PdpAdvert implements ArgumentInterface
         return [
             'heading' => $advert->getHeading(),
             'message' => $advert->getMessage(),
-            'image_path' => $advert->getImagePath(),
+            'imagePath' => $advert->getImagePath(),
             'url_link' => $advert->getUrlLink()
         ];
 

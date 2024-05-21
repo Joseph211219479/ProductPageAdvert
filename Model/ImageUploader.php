@@ -21,22 +21,13 @@ class ImageUploader
         $this->uploaderFactory = $uploaderFactory;
         $this->filesystem = $filesystem;
         $this->urlBuilder = $urlBuilder;
+
     }
 
     public function upload($fileId)
     {
         try {
             $uploader = $this->uploaderFactory->create(['fileId' => $fileId]);
-            /*
-             * error happens in
-             * Magento\Framework\File\uploader
-             * in the contructor when doing
-             * if (!file_exists($this->_file['tmp_name']))
-             *
-             * */
-
-
-
 
             $uploader->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
             $uploader->setAllowRenameFiles(true);
@@ -61,4 +52,13 @@ class ImageUploader
             throw new \Magento\Framework\Exception\LocalizedException(__($e->getMessage()));
         }
     }
+
+    /**
+     * @return string
+     */
+    public function getBaseTmpPath()
+    {
+        return $this->baseTmpPath;
+    }
+
 }
