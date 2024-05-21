@@ -1,0 +1,30 @@
+.advert-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(231, 153, 76, 0.62); /* Border style */
+    background-color: rgba(199, 150, 120, 0.51); /* Background color */
+    padding: 10px; /* Add padding for spacing */
+}
+
+.advert-container .image-container {
+    flex: 0 0 auto; /* Don't grow, don't shrink */
+    margin-right: 20px; /* Adjust as needed */
+}
+
+.advert-container .content-container {
+    flex: 1; /* Grow to fill remaining space */
+}
+
+.advert-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.advert-container p {
+    margin-bottom: 10px;
+}
+
+.advert-container a {
+    color: blue;
+    text-decoration: underline;
+}

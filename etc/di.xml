@@ -22,14 +22,12 @@
         </arguments>
     </type>
 
-
     <type name="Sozo\ProductPageAdvert\Controller\Adminhtml\Advert\Upload">
         <arguments>
             <argument name="uploaderFactory" xsi:type="object">Magento\MediaStorage\Model\File\UploaderFactory</argument>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem</argument>
         </arguments>
     </type>
-
 
  <!--   <referenceContainer name="content">
         <uiComponent name="productpageadvert_advert_form">

@@ -1,5 +1,38 @@
-<a>this displayes to low on the screen , needs to be just below the add to car button.</a>
+<?php
 
-<a>this has to be edited</a>
+/** @var $viewModel \Sozo\ProdcutPageAdvert\ViewModel\PdpAdvert */
+$viewModel = $block->getViewModel();
 
-<a>load the data from the view model thats already created (not tested yet)</a>
+if(!$viewModel->isPdpAdvertsEnabled()){
+    //the module is disabled
+    return;
+}
+
+// Inject the Magento\Catalog\Block\Product\View block, this is to get access to product data.
+$productViewBlock = $block->getLayout()->getBlock('product.info');
+
+// Check if the block exists and get the product object
+if ($productViewBlock && $productViewBlock->getProduct()) {
+    $product = $productViewBlock->getProduct();
+    $productId = $product->getId();
+
+    $advertData = $viewModel->getProductPageAdvertData($productId);
+
+    if(empty($advertData)){
+        //product does not have a advert id set
+        return;
+    }
+}
+?>
+
+<div class="advert-container">
+    <div class="image-container">
+        <!-- todo hard coded -->
+        <img src="http://friendlychef.be:9002/static/version1716150940/frontend/Magento/luma/en_US/images/logo.svg" alt="Image">
+    </div>
+    <div class="content-container">
+        <h2><?php echo $advertData['heading']?></h2>
+        <p><?php echo $advertData['message']?></p>
+        <a href="#"><?php echo $advertData['url_link']?></a>
+    </div>
+</div>

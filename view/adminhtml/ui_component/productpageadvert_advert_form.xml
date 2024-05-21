@@ -83,10 +83,7 @@
                     <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
                     <item name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</item>
                     <item name="uploaderConfig" xsi:type="array">
-                        <item name="url" xsi:type="url" path="pdpadvert/advert/upload">
-                            <param name="target_element_id">image_path</param>
-                            <param name="type">image</param>
-                        </item>
+                        <item name="url" xsi:type="url" path="pdpadvert/advert/upload"/>
                     </item>
                 </item>
             </argument>
