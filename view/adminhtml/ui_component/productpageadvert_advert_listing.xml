@@ -85,7 +85,6 @@
                     <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
-            <!--<argument name="viewUrl" xsi:type="string">catalog/category/view</argument>-->
         </actionsColumn>
     </columns>
 </listing>

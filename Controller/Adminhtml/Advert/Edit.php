@@ -4,8 +4,9 @@ namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
-use Magento\Framework\Registry;
 use Sozo\ProductPageAdvert\Model\AdvertFactory;
+use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface ;
+
 
 class Edit extends Action
 {
@@ -13,36 +14,35 @@ class Edit extends Action
     protected $registry;
     protected $advertFactory;
 
+    protected AdvertRepositoryInterface $advertRepository;
+
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
-        Registry $registry,
-        AdvertFactory $advertFactory
+        AdvertFactory $advertFactory,
+        AdvertRepositoryInterface $advertRepository
+
     ) {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
-        $this->registry = $registry;
         $this->advertFactory = $advertFactory;
+        $this->advertRepository = $advertRepository;
+
     }
 
     public function execute()
     {
         $id = $this->getRequest()->getParam('id');
-        $model = $this->advertFactory->create();
-
-        if ($id) {
-            $model = $model->load($id);
-            if (!$model->getId()) {
-                $this->messageManager->addErrorMessage(__('This advert no longer exists.'));
-                return $this->_redirect('*/*/');
-            }
-        }
-
-        $this->registry->register('advert', $model);
-
+        // Load existing data based on $id
+        $existingData = $this->advertRepository->getById($id);
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? __('Edit Advert') : __('New Advert'));
-
+        $resultPage->getConfig()->getTitle()->prepend(__('Edit Entity'));
+        $resultPage->addBreadcrumb(__('Edit Entity'), __('Edit Entity'));
+        $resultPage->addContent(
+            $resultPage->getLayout()->createBlock(
+                \Sozo\ProductPageAdvert\Block\Adminhtml\Edit::class
+            )->setData('existing_data', $existingData)
+        );
         return $resultPage;
     }
 }
