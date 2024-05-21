@@ -71,7 +71,7 @@
         </column>
         <column name="url_link">
             <settings>
-                <label translate="true">Heading</label>
+                <label translate="true">Url link</label>
                 <filter>text</filter>
                 <sorting>asc</sorting>
             </settings>

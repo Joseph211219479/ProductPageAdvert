@@ -27,11 +27,16 @@ if ($productViewBlock && $productViewBlock->getProduct()) {
 
 <div class="advert-container">
     <div class="image-container">
+
+
         <img src="http://friendlychef.be:9002/static/version1716150940/frontend/Magento/luma/en_US/images/logo.svg" alt="Image"> <!-- todo hard coded -->
+
+
+
     </div>
     <div class="content-container">
         <h2><?php echo $advertData['heading']?></h2>
         <p><?php echo $advertData['message']?></p>
-        <a href="<?php echo $advertData['url_link']?>">FIND OUT MORE</a> <!--todo only if link exists-->
+        <?php if($advertData['url_link'] != ''){echo "<a href='{$advertData['url_link']}'>FIND OUT MORE</a> ";} ?>
     </div>
 </div>
