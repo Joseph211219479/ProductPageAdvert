@@ -3,21 +3,33 @@
 namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
 
 use Magento\Backend\App\Action\Context;
+use Magento\MediaStorage\Model\File\UploaderFactory;
 use Sozo\ProductPageAdvert\Model\ImageUploader;
 use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
 
 class Upload extends Action
 {
-    protected $imageUploader;
+    /**
+     * @var ImageUploader
+     */
+    protected ImageUploader $imageUploader;
 
-    protected $uploaderFactory;
+    /**
+     * @var UploaderFactory
+     */
+    protected UploaderFactory $uploaderFactory;
 
 
+    /**
+     * @param Context $context
+     * @param ImageUploader $imageUploader
+     * @param UploaderFactory $uploaderFactory
+     */
     public function __construct(
         Context $context,
         ImageUploader $imageUploader,
-        \Magento\MediaStorage\Model\File\UploaderFactory $uploaderFactory,
+        UploaderFactory $uploaderFactory,
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
@@ -25,6 +37,9 @@ class Upload extends Action
         $this->uploaderFactory = $uploaderFactory;
     }
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Json|\Magento\Framework\Controller\ResultInterface
+     */
     public function execute()
     {
         try {

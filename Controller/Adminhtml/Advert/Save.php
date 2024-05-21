@@ -49,20 +49,20 @@ class Save extends Action
             return;
         }
 
-        $id = $this->getRequest()->getParam('id');
+        //$id = $this->getRequest()->getParam('id');
 
         try {
             $model = $this->advertFactory->create();
 
             //todo do not need this anymore, handle edit in its own class
-           /* if ($id) {
-                $model = $this->advertRepository->getById($id);
+            if ($data['advert']['entity_id']  !== '') {
+                $model = $this->advertRepository->getById($data['advert']['entity_id']);
                 if (!$model->getId()) {
                     throw new NoSuchEntityException(__('The advert no longer exists.'));
                     $this->_redirect('pdpadvert/advert/index');
                     return;
                 }
-            }*/
+            }
 
             //$model->setData($data['advert']);
             // todo move to private function.

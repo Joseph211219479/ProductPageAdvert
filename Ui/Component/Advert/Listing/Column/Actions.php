@@ -55,7 +55,7 @@ class Actions extends Column
                 $item[$this->getData('name')]['edit'] = [
                     'href' => $this->_urlBuilder->getUrl(
                         'pdpadvert/advert/edit',
-                        ['id' => $item['entity_id']]
+                        ['entity_id' => $item['entity_id']]
                     ),
                     'label' => __('Edit'),
                     'hidden' => false,

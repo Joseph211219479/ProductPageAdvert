@@ -3,6 +3,7 @@ namespace Sozo\ProductPageAdvert\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
 
+//todo delete , does not use it anymore.
 class Edit extends Template
 {
     protected $existingData;

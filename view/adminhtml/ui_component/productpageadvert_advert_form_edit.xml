@@ -3,8 +3,8 @@
 
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
-            <item name="deps" xsi:type="string">productpageadvert_advert_form.productpageadvert_advert_form_data_source</item>
+            <item name="provider" xsi:type="string">productpageadvert_advert_form_edit.productpageadvert_advert_form_edit_data_source</item>
+            <item name="deps" xsi:type="string">productpageadvert_advert_form_edit.productpageadvert_advert_form_edit_data_source</item>
         </item>
         <item name="label" xsi:type="string" translate="true">Advert: Manage Advert</item>
         <item name="config" xsi:type="array">
@@ -18,7 +18,6 @@
 
     <settings>
         <buttons>
-            <button name="delete" class="Sozo\ProductPageAdvert\Block\Adminhtml\Advert\DeleteButton"/>
             <button name="save" class="Sozo\ProductPageAdvert\Block\Adminhtml\Advert\SaveButton"/>
             <button name="back">
                 <url path="*/*/"/>
@@ -27,10 +26,10 @@
             </button>
         </buttons>
 
-        <namespace>productpageadvert_advert_form</namespace>
+        <namespace>productpageadvert_advert_form_edit</namespace>
         <dataScope>data</dataScope>
         <deps>
-            <dep>productpageadvert_advert_form.productpageadvert_advert_form_data_source</dep>
+            <dep>productpageadvert_advert_form_edit.productpageadvert_advert_form_edit_data_source</dep>
         </deps>
     </settings>
 
@@ -42,8 +41,8 @@
         </argument>
 
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
-            <argument name="name" xsi:type="string">productpageadvert_advert_form_data_source</argument>
+            <argument name="class" xsi:type="string">Sozo\ProductPageAdvert\Ui\DataProvider\Advert\FormEditDataProvider</argument>
+            <argument name="name" xsi:type="string">productpageadvert_advert_form_edit_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">entity_id</argument>
         </argument>

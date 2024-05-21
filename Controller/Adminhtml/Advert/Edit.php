@@ -32,17 +32,10 @@ class Edit extends Action
 
     public function execute()
     {
-        $id = $this->getRequest()->getParam('id');
-        // Load existing data based on $id
-        $existingData = $this->advertRepository->getById($id);
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('Edit Entity'));
-        $resultPage->addBreadcrumb(__('Edit Entity'), __('Edit Entity'));
-        $resultPage->addContent(
-            $resultPage->getLayout()->createBlock(
-                \Sozo\ProductPageAdvert\Block\Adminhtml\Edit::class
-            )->setData('existing_data', $existingData)
-        );
+        $resultPage->setActiveMenu('Sozo_ProductPageAdvert::pdp');
+        $resultPage->getConfig()->getTitle()->prepend(__('Edit Advert'));
+
         return $resultPage;
     }
 }
