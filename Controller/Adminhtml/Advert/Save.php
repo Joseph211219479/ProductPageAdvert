@@ -66,9 +66,11 @@ class Save extends Action
 
             //non required fields
             if(isset($data['advert']['imagePath'])){
-                if(!isset($data['advert']['entity_id'])){//todo this is just to test updates while the image uploader does not populate saved image.
+              //  if(!isset($data['advert']['entity_id'])){//todo this is just to test updates while the image uploader does not populate saved image.
+                if(isset( $data['advert']['imagePath'][0]['url'])){
                     $model->setImagePath($data['advert']['imagePath'][0]['url']);
                 }
+                //}
             }
             if(isset($data['advert']['url_link'])){
                 $model->setUrlLink($data['advert']['url_link']);

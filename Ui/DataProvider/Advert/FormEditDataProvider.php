@@ -2,25 +2,79 @@
 
 namespace Sozo\ProductPageAdvert\Ui\DataProvider\Advert;
 
-use Magento\Ui\DataProvider\AbstractDataProvider;
+use Magento\Framework\Api\FilterBuilder;
+use Magento\Framework\Api\Search\ReportingInterface;
+use Magento\Framework\Api\Search\SearchCriteria;
+use Magento\Framework\Api\Search\SearchCriteriaBuilder;
+use Magento\Framework\Api\Search\SearchResultInterface;
+use Magento\Framework\View\Element\UiComponent\DataProvider\DataProviderInterface;
 use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface;
-use Sozo\ProductPageAdvert\Model\ResourceModel\Advert\CollectionFactory;
 use Magento\Framework\App\RequestInterface;
-use Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider;
 use Magento\Framework\Filesystem\Io\File;
 
-
-class FormEditDataProvider extends AbstractDataProvider
+class FormEditDataProvider implements  DataProviderInterface
 {
     /**
-     * @var
+     * Data Provider name
+     *
+     * @var string
      */
-    protected $loadedData;
+    protected $name;
+
+    /**
+     * Data Provider Primary Identifier name
+     *
+     * @var string
+     */
+    protected $primaryFieldName;
+
+    /**
+     * Data Provider Request Parameter Identifier name
+     *
+     * @var string
+     */
+    protected $requestFieldName;
+
+    /**
+     * @var array
+     */
+    protected $meta = [];
+
+    /**
+     * Provider configuration data
+     *
+     * @var array
+     */
+    protected $data = [];
+
+    /**
+     * @var ReportingInterface
+     */
+    protected $reporting;
+
+    /**
+     * @var FilterBuilder
+     */
+    protected $filterBuilder;
+
+    /**
+     * @var SearchCriteriaBuilder
+     */
+    protected $searchCriteriaBuilder;
 
     /**
      * @var RequestInterface
      */
-    protected RequestInterface $request;
+    protected $request;
+
+    /**
+     * @var SearchCriteria
+     */
+    protected $searchCriteria;
+    /**
+     * @var
+     */
+    protected $loadedData;
 
     /**
      * @var AdvertRepositoryInterface
@@ -32,23 +86,45 @@ class FormEditDataProvider extends AbstractDataProvider
      */
     protected File $file;
 
+    /**
+     * @param string $name
+     * @param string $primaryFieldName
+     * @param string $requestFieldName
+     * @param ReportingInterface $reporting
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param RequestInterface $request
+     * @param FilterBuilder $filterBuilder
+     * @param array $meta
+     * @param array $data
+     */
     public function __construct(
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $collectionFactory,
+        ReportingInterface $reporting,
+        SearchCriteriaBuilder $searchCriteriaBuilder,
         RequestInterface $request,
+        FilterBuilder $filterBuilder,
         AdvertRepositoryInterface $advertRepository,
         File $file,
+
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $collectionFactory->create();
         $this->request = $request;
+        $this->filterBuilder = $filterBuilder;
+        $this->name = $name;
+        $this->primaryFieldName = $primaryFieldName;
+        $this->requestFieldName = $requestFieldName;
+        $this->reporting = $reporting;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->meta = $meta;
+        $this->data = $data;
         $this->advertRepository = $advertRepository;
         $this->file = $file;
 
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
+
+        $this->prepareUpdateUrl();
     }
 
     /**
@@ -71,7 +147,6 @@ class FormEditDataProvider extends AbstractDataProvider
                 return $this->loadedData;
             }
 
-           // $this->loadedData[$advert->getId()] = $advert->getData();
             $this->loadedData[$advertId]['advert'] = $advert->getData();
 
             if($advert->getImagePath() !== ''){
@@ -84,114 +159,213 @@ class FormEditDataProvider extends AbstractDataProvider
                     return $this->loadedData;
                 }
 
-         /*       $this->loadedData[$advertId]['advert']['imagePath'] = [
-                    'url' => $file_path,
-                    'name' => $pathInfo['basename'],
-                    'type' => $pathInfo['extension'],
-                    'size' => 3000,
+                 $imageData = getimagesize($file_path);
 
+                $image = [];
+                $image[0]['name'] = $pathInfo['basename'];
+                $image[0]['url']  = $file_path;
+                $image[0]['previewType']  = 'image';
+                $image[0]['type']  = $imageData['mime'];
+                $image[0]['size']  = $imageData['bits'];
 
-                    'name' => 'pp.jpg',
-                    'type' => 'image/jpeg',
-                    'path' => '/var/www/html/websites/friendlychef/pub/media/pdpadvert/images',
-                    'file' => '/p/p/pp.jpg',
-                    'previewType' => 'image',
-                    'imageDimensions' => [0 => 96, 1 => 96],
-                    'id' => 'cHAuanBn'
-                ];
-
-                $this->loadedData[$advertId]['imagePath'] = [
-                    'url' => $file_path,
-                    'name' => $pathInfo['basename'],
-                    'type' => $pathInfo['extension'],
-                    'size' => 3000,
-
-
-                    'name' => 'pp.jpg',
-                    'type' => 'image/jpeg',
-                    'path' => '/var/www/html/websites/friendlychef/pub/media/pdpadvert/images',
-                    'file' => '/p/p/pp.jpg',
-                    'previewType' => 'image',
-                    'imageDimensions' => [0 => 96, 1 => 96],
-                    'id' => 'cHAuanBn'
-                ];
-
-                $this->loadedData[$advertId]['advert']['imagePath'][0] = [
-                    'url' => $file_path,
-                    'name' => $pathInfo['basename'],
-                    'type' => $pathInfo['extension'],
-                    'size' => 3000,
-
-
-                    'name' => 'pp.jpg',
-                    'type' => 'image/jpeg',
-                    'path' => '/var/www/html/websites/friendlychef/pub/media/pdpadvert/images',
-                    'file' => '/p/p/pp.jpg',
-                    'previewType' => 'image',
-                    'imageDimensions' => [0 => 96, 1 => 96],
-                    'id' => 'cHAuanBn'
-                ];
-
-                $this->loadedData['imagePath'] =[
-                    'url' => $file_path,
-                    'name' => $pathInfo['basename'],
-                    'type' => $pathInfo['extension'],
-                    'size' => 3000,
-
-
-                    'name' => 'pp.jpg',
-                    'type' => 'image/jpeg',
-                    'path' => '/var/www/html/websites/friendlychef/pub/media/pdpadvert/images',
-                    'file' => '/p/p/pp.jpg',
-                    'previewType' => 'image',
-                    'imageDimensions' => [0 => 96, 1 => 96],
-                    'id' => 'cHAuanBn'
-                ];
-
-                $this->loadedData['advert']['imagePath'][0] = [
-                    'url' => $file_path,
-                    'name' => $pathInfo['basename'],
-                    'type' => $pathInfo['extension'],
-                    'size' => 3000,
-
-
-                    'name' => 'pp.jpg',
-                    'type' => 'image/jpeg',
-                    'path' => '/var/www/html/websites/friendlychef/pub/media/pdpadvert/images',
-                    'file' => '/p/p/pp.jpg',
-                    'previewType' => 'image',
-                    'imageDimensions' => [0 => 96, 1 => 96],
-                    'id' => 'cHAuanBn'
-                ];*/
-
-             /*   $_FILES["advert"]['name']['imagePath'] = $pathInfo['basename'];
-                $_FILES["advert"]['type']['imagePath'] =  $pathInfo['extension'];
-                $_FILES["advert"]['tmp_name']['imagePath'] = '';
-                $_FILES["advert"]['error']['imagePath'] = '';
-                $_FILES["advert"]['size']['imagePath'] = 57671 ;
-                $_FILES["advert"]['full_path']['imagePath'] = '';*/
-
-                /*
-                                results from image upload when creating ->
-                [advert][imagePage][0]
-                                name = 'pp.jpg'
-                                type = 'image/jpeg'
-                                tmp_name =
-                                error
-                                size
-                                full_path
-                                path = '/var/www/html/websites/friendlychef/pub/media/pdpadvert/images'
-                                file = '/p/p/pp.jpg'
-                                [imageDimensions][0] = 96
-                                [imageDimensions][1] = 96
-                                previewType = 'image'
-                                id = 'cHAuanBn'
-                */
-
-
+                $this->loadedData[$advertId]['advert']['imagePath'] = $image;
             }
         }
 
         return $this->loadedData;
+    }
+
+    /**
+     * @return void
+     */
+    protected function prepareUpdateUrl()
+    {
+        if (!isset($this->data['config']['filter_url_params'])) {
+            return;
+        }
+        foreach ($this->data['config']['filter_url_params'] as $paramName => $paramValue) {
+            if ('*' == $paramValue) {
+                $paramValue = $this->request->getParam($paramName);
+            }
+            if ($paramValue) {
+                $this->data['config']['update_url'] = sprintf(
+                    '%s%s/%s/',
+                    $this->data['config']['update_url'],
+                    $paramName,
+                    $paramValue
+                );
+                $this->addFilter(
+                    $this->filterBuilder->setField($paramName)->setValue($paramValue)->setConditionType('eq')->create()
+                );
+            }
+        }
+    }
+
+    /**
+     * Get Data Provider name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get primary field name
+     *
+     * @return string
+     */
+    public function getPrimaryFieldName()
+    {
+        return $this->primaryFieldName;
+    }
+
+    /**
+     * Get field name in request
+     *
+     * @return string
+     */
+    public function getRequestFieldName()
+    {
+        return $this->requestFieldName;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMeta()
+    {
+        return $this->meta;
+    }
+
+    /**
+     * Get field Set meta info
+     *
+     * @param string $fieldSetName
+     * @return array
+     */
+    public function getFieldSetMetaInfo($fieldSetName)
+    {
+        return $this->meta[$fieldSetName] ?? [];
+    }
+
+    /**
+     * @param string $fieldSetName
+     * @return array
+     */
+    public function getFieldsMetaInfo($fieldSetName)
+    {
+        return $this->meta[$fieldSetName]['children'] ?? [];
+    }
+
+    /**
+     * @param string $fieldSetName
+     * @param string $fieldName
+     * @return array
+     */
+    public function getFieldMetaInfo($fieldSetName, $fieldName)
+    {
+        return $this->meta[$fieldSetName]['children'][$fieldName] ?? [];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function addFilter(\Magento\Framework\Api\Filter $filter)
+    {
+        $this->searchCriteriaBuilder->addFilter($filter);
+    }
+
+    /**
+     * self::setOrder() alias
+     *
+     * @param string $field
+     * @param string $direction
+     * @return void
+     */
+    public function addOrder($field, $direction)
+    {
+        $this->searchCriteriaBuilder->addSortOrder($field, $direction);
+    }
+
+    /**
+     * Set Query limit
+     *
+     * @param int $offset
+     * @param int $size
+     * @return void
+     */
+    public function setLimit($offset, $size)
+    {
+        $this->searchCriteriaBuilder->setPageSize($size);
+        $this->searchCriteriaBuilder->setCurrentPage($offset);
+    }
+
+    /**
+     * @param SearchResultInterface $searchResult
+     * @return array
+     */
+    protected function searchResultToOutput(SearchResultInterface $searchResult)
+    {
+        $arrItems = [];
+
+        $arrItems['items'] = [];
+        foreach ($searchResult->getItems() as $item) {
+            $itemData = [];
+            foreach ($item->getCustomAttributes() as $attribute) {
+                $itemData[$attribute->getAttributeCode()] = $attribute->getValue();
+            }
+            $arrItems['items'][] = $itemData;
+        }
+
+        $arrItems['totalRecords'] = $searchResult->getTotalCount();
+
+        return $arrItems;
+    }
+
+    /**
+     * Returns search criteria
+     *
+     * @return \Magento\Framework\Api\Search\SearchCriteria
+     */
+    public function getSearchCriteria()
+    {
+        if (!$this->searchCriteria) {
+            $this->searchCriteria = $this->searchCriteriaBuilder->create();
+            $this->searchCriteria->setRequestName($this->name);
+        }
+        return $this->searchCriteria;
+    }
+
+    /**
+     * Get config data
+     *
+     * @return array
+     */
+    public function getConfigData()
+    {
+        return $this->data['config'] ?? [];
+    }
+
+    /**
+     * Set data
+     *
+     * @param mixed $config
+     * @return void
+     */
+    public function setConfigData($config)
+    {
+        $this->data['config'] = $config;
+    }
+
+    /**
+     * Returns Search result
+     *
+     * @return SearchResultInterface
+     */
+    public function getSearchResult()
+    {
+        return $this->reporting->search($this->getSearchCriteria());
     }
 }

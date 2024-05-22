@@ -42,6 +42,10 @@
 
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Sozo\ProductPageAdvert\Ui\DataProvider\Advert\FormEditDataProvider</argument>
+<!--
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+-->
+
             <argument name="name" xsi:type="string">productpageadvert_advert_form_edit_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">entity_id</argument>
