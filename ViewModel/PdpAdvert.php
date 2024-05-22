@@ -1,25 +1,34 @@
 <?php
 namespace Sozo\ProductPageAdvert\ViewModel;
 
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface ;
 use Sozo\ProductPageAdvert\Helper\Config;
 
-
-//todo create model to do the tasks.
-
 class PdpAdvert implements ArgumentInterface
 {
+    /**
+     * @var ProductRepositoryInterface
+     */
+    private ProductRepositoryInterface $productRepository;
 
-    private $productRepository;
-    private $pdpAdvertConfig;
+    /**
+     * @var Config
+     */
+    private Config $pdpAdvertConfig;
 
     /**
      * @var AdvertRepositoryInterface
      */
     protected AdvertRepositoryInterface $advertRepository;
 
+    /**
+     * @param ProductRepositoryInterface $productRepository
+     * @param AdvertRepositoryInterface $advertRepository
+     * @param Config $pdpAdvertConfig
+     */
     public function __construct(
         ProductRepositoryInterface $productRepository,
         AdvertRepositoryInterface $advertRepository,
@@ -30,9 +39,18 @@ class PdpAdvert implements ArgumentInterface
         $this->pdpAdvertConfig = $pdpAdvertConfig;
     }
 
+    /**
+     * @param $productId
+     * @return array
+     */
     public function getProductPageAdvertData($productId)
     {
-        $product = $this->productRepository->getById($productId);
+        try {
+            $product = $this->productRepository->getById($productId);
+        } catch (NoSuchEntityException $e) {
+
+            return [];
+        }
         $advertId = $product->getData('pdp_advert_id');
 
         if($advertId == '0'){
@@ -47,15 +65,11 @@ class PdpAdvert implements ArgumentInterface
             'imagePath' => $advert->getImagePath(),
             'url_link' => $advert->getUrlLink()
         ];
-
     }
 
-
-    public function getProductPageAdvertList()
-    {
-        //todo might not need this
-    }
-
+    /**
+     * @return bool
+     */
     public function isPdpAdvertsEnabled(){
         return $this->pdpAdvertConfig->isModuleEnabled();
     }

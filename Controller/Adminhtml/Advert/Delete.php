@@ -18,6 +18,11 @@ class Delete extends Action
      */
     protected AdvertRepositoryInterface $advertRepository;
 
+    /**
+     * @param Context $context
+     * @param AdvertFactory $advertFactory
+     * @param AdvertRepositoryInterface $advertRepository
+     */
     public function __construct(
         Context $context,
         AdvertFactory $advertFactory,

@@ -10,12 +10,27 @@ use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface ;
 
 class Edit extends Action
 {
-    protected $resultPageFactory;
-    protected $registry;
-    protected $advertFactory;
+    /**
+     * @var PageFactory
+     */
+    protected PageFactory $resultPageFactory;
 
+    /**
+     * @var AdvertFactory
+     */
+    protected AdvertFactory $advertFactory;
+
+    /**
+     * @var AdvertRepositoryInterface
+     */
     protected AdvertRepositoryInterface $advertRepository;
 
+    /**
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
+     * @param AdvertFactory $advertFactory
+     * @param AdvertRepositoryInterface $advertRepository
+     */
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
@@ -30,6 +45,9 @@ class Edit extends Action
 
     }
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Page
+     */
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();

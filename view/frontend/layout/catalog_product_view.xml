@@ -10,7 +10,6 @@
                     <argument name="view_model" xsi:type="object">Sozo\ProductPageAdvert\ViewModel\PdpAdvert</argument>
                 </arguments>
             </block>
-
         </referenceContainer>
     </body>
 </page>

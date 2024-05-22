@@ -1,7 +1,7 @@
 <?php
 
 /** @var $viewModel \Sozo\ProdcutPageAdvert\ViewModel\PdpAdvert */
-$viewModel = $block->getViewModel();
+$viewModel = $this->getViewModel();
 
 if(!$viewModel->isPdpAdvertsEnabled()){
     //the module is disabled
@@ -9,7 +9,7 @@ if(!$viewModel->isPdpAdvertsEnabled()){
 }
 
 // Inject the Magento\Catalog\Block\Product\View block, this is to get access to product data.
-$productViewBlock = $block->getLayout()->getBlock('product.info');
+$productViewBlock = $this->getLayout()->getBlock('product.info');
 
 // Check if the block exists and get the product object
 if ($productViewBlock && $productViewBlock->getProduct()) {
@@ -19,7 +19,7 @@ if ($productViewBlock && $productViewBlock->getProduct()) {
     $advertData = $viewModel->getProductPageAdvertData($productId);
 
     if(empty($advertData)){
-        //product does not have a advert id set
+        //product does not have an advert id set
         return;
     }
 }
@@ -27,14 +27,16 @@ if ($productViewBlock && $productViewBlock->getProduct()) {
 
 <div class="advert-container">
     <div class="image-container">
-
-
-        <?php if($advertData['imagePath'] != ''){echo " <img src='{$advertData['imagePath']}' alt='Image'> " ;} ?>
-
+        <?php if($advertData['imagePath'] != ''){
+            echo " <img src='{$advertData['imagePath']}' alt='Image'> " ;
+        } ?>
     </div>
+
     <div class="content-container">
         <h2><?php echo $advertData['heading']?></h2>
         <p><?php echo $advertData['message']?></p>
-        <?php if($advertData['url_link'] != ''){echo "<a href='{$advertData['url_link']}'>FIND OUT MORE</a> ";} ?>
+        <?php if($advertData['url_link'] != ''){
+            echo "<a href='{$advertData['url_link']}'>FIND OUT MORE</a> ";
+        } ?>
     </div>
 </div>

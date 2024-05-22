@@ -9,35 +9,55 @@ use Sozo\ProductPageAdvert\Model\ResourceModel\Advert as AdvertResource;
 
 class Collection extends AbstractCollection implements SearchResultInterface
 {
-
-
+    /**
+     * @return void
+     */
     protected function _construct()
     {
         $this->_init(Advert::class, AdvertResource::class);
     }
 
+    /**
+     * @return \Magento\Framework\Api\Search\SearchCriteriaInterface|SearchCriteriaInterface|null
+     */
     public function getSearchCriteria()
     {
         return $this->_searchCriteria;
     }
 
+    /**
+     * @param SearchCriteriaInterface|null $searchCriteria
+     * @return $this|Collection
+     */
     public function setSearchCriteria(SearchCriteriaInterface $searchCriteria = null)
     {
         $this->_searchCriteria = $searchCriteria;
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getTotalCount()
     {
         return $this->getSize();
     }
 
+    /**
+     * @param $totalCount
+     * @return $this|Collection
+     */
     public function setTotalCount($totalCount)
     {
         $this->_totalRecords = $totalCount;
         return $this;
     }
 
+    /**
+     * @param array|null $items
+     * @return $this|Collection
+     * @throws \Exception
+     */
     public function setItems(array $items = null)
     {
         $this->clear();

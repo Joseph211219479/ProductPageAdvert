@@ -48,11 +48,10 @@ class UpgradeData implements UpgradeDataInterface
     }
 
     /**
-     * Add a custom attribute to the products
-     *
-     *
+     * @return void
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Magento\Framework\Validator\ValidateException
      */
-
     private function addPdpAdvertIdAttribute()
     {
         $this->eavSetup->addAttribute(

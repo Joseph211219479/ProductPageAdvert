@@ -12,10 +12,25 @@ use Magento\Framework\Filesystem\Io\File;
 
 class FormEditDataProvider extends AbstractDataProvider
 {
+    /**
+     * @var
+     */
     protected $loadedData;
-    protected $request;
-    protected $advertRepository;
-    protected $file;
+
+    /**
+     * @var RequestInterface
+     */
+    protected RequestInterface $request;
+
+    /**
+     * @var AdvertRepositoryInterface
+     */
+    protected AdvertRepositoryInterface $advertRepository;
+
+    /**
+     * @var File
+     */
+    protected File $file;
 
     public function __construct(
         $name,
@@ -36,6 +51,9 @@ class FormEditDataProvider extends AbstractDataProvider
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
+    /**
+     * @return array
+     */
     public function getData()
     {
         if (isset($this->loadedData)) {

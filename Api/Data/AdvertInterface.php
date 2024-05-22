@@ -55,10 +55,26 @@ interface AdvertInterface
     public function setMessage($message);
 
 
+    /**
+     * @return mixed
+     */
     public function getImagePath();
+
+    /**
+     * @param $imagePath
+     * @return mixed
+     */
     public function setImagePath($imagePath);
 
+    /**
+     * @return mixed
+     */
     public function getUrlLink();
+
+    /**
+     * @param $url_link
+     * @return mixed
+     */
     public function setUrlLink($url_link);
 
 }

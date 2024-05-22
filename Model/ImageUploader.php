@@ -9,10 +9,25 @@ use Magento\Framework\UrlInterface;
 
 class ImageUploader
 {
-    protected $uploaderFactory;
-    protected $filesystem;
-    protected $urlBuilder;
+    /**
+     * @var UploaderFactory
+     */
+    protected UploaderFactory $uploaderFactory;
 
+    /**
+     * @var Filesystem
+     */
+    protected Filesystem $filesystem;
+    /**
+     * @var UrlInterface
+     */
+    protected UrlInterface $urlBuilder;
+
+    /**
+     * @param UploaderFactory $uploaderFactory
+     * @param Filesystem $filesystem
+     * @param UrlInterface $urlBuilder
+     */
     public function __construct(
         UploaderFactory $uploaderFactory,
         Filesystem $filesystem,
@@ -21,9 +36,13 @@ class ImageUploader
         $this->uploaderFactory = $uploaderFactory;
         $this->filesystem = $filesystem;
         $this->urlBuilder = $urlBuilder;
-
     }
 
+    /**
+     * @param $fileId
+     * @return array|bool
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function upload($fileId)
     {
         try {

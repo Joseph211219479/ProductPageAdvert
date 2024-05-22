@@ -33,7 +33,6 @@ class Upload extends Action
     ) {
         parent::__construct($context);
         $this->imageUploader = $imageUploader;
-
         $this->uploaderFactory = $uploaderFactory;
     }
 

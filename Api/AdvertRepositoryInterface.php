@@ -9,22 +9,22 @@ interface AdvertRepositoryInterface
      * Get advert by ID
      *
      * @param int $advertId
-     * @return \Sozo\ProductPageAdvert\Api\Data\AdvertInterface
+     * @return AdvertInterface
      */
     public function getById($advertId);
 
     /**
      * Save advert
      *
-     * @param \Sozo\ProductPageAdvert\Api\Data\AdvertInterface $advert
-     * @return \Sozo\ProductPageAdvert\Api\Data\AdvertInterface
+     * @param AdvertInterface $advert
+     * @return AdvertInterface
      */
     public function save(AdvertInterface $advert);
 
     /**
      * Delete advert
      *
-     * @param \Sozo\ProductPageAdvert\Api\Data\AdvertInterface $advert
+     * @param AdvertInterface $advert
      * @return void
      */
     public function delete(AdvertInterface $advert);
