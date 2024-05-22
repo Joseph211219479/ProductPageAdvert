@@ -149,7 +149,7 @@ class FormEditDataProvider implements  DataProviderInterface
 
             $this->loadedData[$advertId]['advert'] = $advert->getData();
 
-            if($advert->getImagePath() !== ''){
+            if($advert->getImagePath() !== '' && $advert->getImagePath() !== null ){
                 $file_path =  $advert->getImagePath();
                 $pathInfo = $this->file->getPathInfo($file_path);
 
@@ -170,6 +170,15 @@ class FormEditDataProvider implements  DataProviderInterface
 
                 $this->loadedData[$advertId]['advert']['imagePath'] = $image;
             }
+        }else{
+            $image = [];
+            $image[0]['name'] ;
+            $image[0]['url'] ;
+            $image[0]['previewType']  ;
+            $image[0]['type']  ;
+            $image[0]['size']  ;
+
+            $this->loadedData[$advertId]['advert']['imagePath'] = $image;
         }
 
         return $this->loadedData;

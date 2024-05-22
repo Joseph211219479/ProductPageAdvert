@@ -42,10 +42,6 @@
 
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Sozo\ProductPageAdvert\Ui\DataProvider\Advert\FormEditDataProvider</argument>
-<!--
-            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
--->
-
             <argument name="name" xsi:type="string">productpageadvert_advert_form_edit_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">entity_id</argument>
@@ -102,6 +98,9 @@
                     <item name="sortOrder" xsi:type="number">20</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">heading</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
@@ -115,6 +114,9 @@
                     <item name="sortOrder" xsi:type="number">30</item>
                     <item name="source" xsi:type="string">advert</item>
                     <item name="dataScope" xsi:type="string">message</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>
