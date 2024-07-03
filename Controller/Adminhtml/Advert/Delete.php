@@ -1,10 +1,10 @@
 <?php
-namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Controller\Adminhtml\Advert;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface;
-use Sozo\ProductPageAdvert\Model\AdvertFactory;
+use Joseph\ProductPageAdvert\Api\AdvertRepositoryInterface;
+use Joseph\ProductPageAdvert\Model\AdvertFactory;
 
 class Delete extends Action
 {

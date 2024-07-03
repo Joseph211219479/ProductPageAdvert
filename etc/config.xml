@@ -2,10 +2,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
-        <sozo_productpageadvert>
+        <joseph_productpageadvert>
             <general>
                 <enable>1</enable>
             </general>
-        </sozo_productpageadvert>
+        </joseph_productpageadvert>
     </default>
 </config>

@@ -2,19 +2,19 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Sozo_ProductPageAdvert::Advert"
+        <add id="Joseph_ProductPageAdvert::Advert"
              title="Adverts"
-             module="Sozo_ProductPageAdvert"
+             module="Joseph_ProductPageAdvert"
              sortOrder="10"
-             resource="Sozo_ProductPageAdvert::config"
+             resource="Joseph_ProductPageAdvert::config"
              parent="Magento_Backend::marketing"/>
 
-        <add id="Sozo_ProductPageAdvert::pdp"
+        <add id="Joseph_ProductPageAdvert::pdp"
              title="PDP Advert"
-             module="Sozo_ProductPageAdvert"
-             resource="Sozo_ProductPageAdvert::config"
+             module="Joseph_ProductPageAdvert"
+             resource="Joseph_ProductPageAdvert::config"
              sortOrder="10"
-             parent="Sozo_ProductPageAdvert::Advert"
+             parent="Joseph_ProductPageAdvert::Advert"
              action="pdpadvert/advert/index"/>
     </menu>
 </config>

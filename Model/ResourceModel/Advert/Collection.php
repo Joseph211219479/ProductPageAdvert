@@ -1,11 +1,11 @@
 <?php
-namespace Sozo\ProductPageAdvert\Model\ResourceModel\Advert;
+namespace Joseph\ProductPageAdvert\Model\ResourceModel\Advert;
 
 use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
-use Sozo\ProductPageAdvert\Model\Advert;
-use Sozo\ProductPageAdvert\Model\ResourceModel\Advert as AdvertResource;
+use Joseph\ProductPageAdvert\Model\Advert;
+use Joseph\ProductPageAdvert\Model\ResourceModel\Advert as AdvertResource;
 
 class Collection extends AbstractCollection implements SearchResultInterface
 {

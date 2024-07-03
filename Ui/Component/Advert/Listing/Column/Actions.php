@@ -1,5 +1,5 @@
 <?php
-namespace Sozo\ProductPageAdvert\Ui\Component\Advert\Listing\Column;
+namespace Joseph\ProductPageAdvert\Ui\Component\Advert\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;

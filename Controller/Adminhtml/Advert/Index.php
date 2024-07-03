@@ -1,5 +1,5 @@
 <?php
-namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Controller\Adminhtml\Advert;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -28,7 +28,7 @@ class Index extends Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Sozo_ProductPageAdvert::pdp');
+        $resultPage->setActiveMenu('Joseph_ProductPageAdvert::pdp');
         $resultPage->getConfig()->getTitle()->prepend(__('Adverts'));
 
         return $resultPage;

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-    <table name="sozo_pdp_advert" resource="default" engine="innodb" comment="Sozo PDP Advert Table">
+    <table name="joseph_pdp_advert" resource="default" engine="innodb" comment="Joseph PDP Advert Table">
         <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
         <column xsi:type="varchar" name="heading" nullable="false" length="255" comment="The advert heading."/>
         <column xsi:type="varchar" name="message" nullable="false" length="255" comment="Advert message."/>

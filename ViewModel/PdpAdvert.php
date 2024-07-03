@@ -1,11 +1,11 @@
 <?php
-namespace Sozo\ProductPageAdvert\ViewModel;
+namespace Joseph\ProductPageAdvert\ViewModel;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface ;
-use Sozo\ProductPageAdvert\Helper\Config;
+use Joseph\ProductPageAdvert\Api\AdvertRepositoryInterface ;
+use Joseph\ProductPageAdvert\Helper\Config;
 
 class PdpAdvert implements ArgumentInterface
 {

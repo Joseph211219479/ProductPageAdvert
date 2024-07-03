@@ -1,7 +1,7 @@
-# Sozo_ProductPageAdvert
+# Joseph_ProductPageAdvert
 
 ## Overview
-`Sozo_ProductPageAdvert` is a Magento 2 module that allows administrators to manage product page adverts. This module provides the ability to create, edit, and delete adverts, which can include images and links to external websites.
+`Joseph_ProductPageAdvert` is a Magento 2 module that allows administrators to manage product page adverts. This module provides the ability to create, edit, and delete adverts, which can include images and links to external websites.
 
 ## Features
 - Add and edit adverts with images and links.

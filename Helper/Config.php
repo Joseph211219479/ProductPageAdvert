@@ -1,12 +1,12 @@
 <?php
-namespace Sozo\ProductPageAdvert\Helper;
+namespace Joseph\ProductPageAdvert\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Store\Model\ScopeInterface;
 
 class Config extends AbstractHelper
 {
-    const XML_PATH_ENABLE = 'sozo_productpageadvert/general/enable';
+    const XML_PATH_ENABLE = 'joseph_productpageadvert/general/enable';
 
     /**
      * @return bool

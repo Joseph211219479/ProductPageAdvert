@@ -1,5 +1,5 @@
 <?php
-namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Controller\Adminhtml\Advert;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;

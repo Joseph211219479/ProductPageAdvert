@@ -1,5 +1,5 @@
 <?php
-namespace Sozo\ProductPageAdvert\Block\Adminhtml;
+namespace Joseph\ProductPageAdvert\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
 

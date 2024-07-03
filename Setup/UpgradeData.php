@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Sozo\ProductPageAdvert\Setup;
+namespace Joseph\ProductPageAdvert\Setup;
 
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Catalog\Model\Product;

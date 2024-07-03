@@ -1,8 +1,8 @@
 <?php
-namespace Sozo\ProductPageAdvert\Model;
+namespace Joseph\ProductPageAdvert\Model;
 
 use Magento\Framework\Model\AbstractModel;
-use Sozo\ProductPageAdvert\Api\Data\AdvertInterface;
+use Joseph\ProductPageAdvert\Api\Data\AdvertInterface;
 
 class Advert extends AbstractModel implements AdvertInterface
 {
@@ -11,7 +11,7 @@ class Advert extends AbstractModel implements AdvertInterface
      */
     protected function _construct()
     {
-        $this->_init('Sozo\ProductPageAdvert\Model\ResourceModel\Advert');
+        $this->_init('Joseph\ProductPageAdvert\Model\ResourceModel\Advert');
     }
 
     /**

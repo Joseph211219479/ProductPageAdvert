@@ -18,7 +18,7 @@
 
     <settings>
         <buttons>
-            <button name="save" class="Sozo\ProductPageAdvert\Block\Adminhtml\Advert\SaveButton"/>
+            <button name="save" class="Joseph\ProductPageAdvert\Block\Adminhtml\Advert\SaveButton"/>
             <button name="back">
                 <url path="*/*/"/>
                 <class>back</class>
@@ -41,7 +41,7 @@
         </argument>
 
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Sozo\ProductPageAdvert\Ui\DataProvider\Advert\FormEditDataProvider</argument>
+            <argument name="class" xsi:type="string">Joseph\ProductPageAdvert\Ui\DataProvider\Advert\FormEditDataProvider</argument>
             <argument name="name" xsi:type="string">productpageadvert_advert_form_edit_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">entity_id</argument>

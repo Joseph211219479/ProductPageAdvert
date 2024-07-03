@@ -1,7 +1,7 @@
 <?php
-namespace Sozo\ProductPageAdvert\Api;
+namespace Joseph\ProductPageAdvert\Api;
 
-use Sozo\ProductPageAdvert\Api\Data\AdvertInterface;
+use Joseph\ProductPageAdvert\Api\Data\AdvertInterface;
 
 interface AdvertRepositoryInterface
 {

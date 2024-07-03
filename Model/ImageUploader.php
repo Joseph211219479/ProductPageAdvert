@@ -1,6 +1,6 @@
 <?php
 
-namespace Sozo\ProductPageAdvert\Model;
+namespace Joseph\ProductPageAdvert\Model;
 
 use Magento\Framework\Filesystem;
 use Magento\Framework\File\UploaderFactory;

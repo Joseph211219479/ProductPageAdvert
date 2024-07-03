@@ -1,6 +1,6 @@
 <?php
 
-/** @var $viewModel \Sozo\ProdcutPageAdvert\ViewModel\PdpAdvert */
+/** @var $viewModel \Joseph\ProdcutPageAdvert\ViewModel\PdpAdvert */
 $viewModel = $this->getViewModel();
 
 if(!$viewModel->isPdpAdvertsEnabled()){
@@ -26,11 +26,11 @@ if ($productViewBlock && $productViewBlock->getProduct()) {
 ?>
 
 <div class="advert-container">
-    <div class="image-container">
         <?php if($advertData['imagePath'] != ''){
+            echo '<div class="image-container">';
             echo " <img src='{$advertData['imagePath']}' alt='Image'> " ;
+            echo '</div>';
         } ?>
-    </div>
 
     <div class="content-container">
         <h2><?php echo $advertData['heading']?></h2>

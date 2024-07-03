@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface" type="Sozo\ProductPageAdvert\Model\AdvertRepository" />
-    <preference for="Sozo\ProductPageAdvert\Api\Data\AdvertInterface" type="Sozo\ProductPageAdvert\Model\Advert" />
+    <preference for="Joseph\ProductPageAdvert\Api\AdvertRepositoryInterface" type="Joseph\ProductPageAdvert\Model\AdvertRepository" />
+    <preference for="Joseph\ProductPageAdvert\Api\Data\AdvertInterface" type="Joseph\ProductPageAdvert\Model\Advert" />
 
-    <virtualType name="Sozo\ProductPageAdvert\Model\ResourceModel\Advert\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+    <virtualType name="Joseph\ProductPageAdvert\Model\ResourceModel\Advert\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">sozo_pdp_advert</argument>
-            <argument name="resourceModel" xsi:type="string">Sozo\ProductPageAdvert\Model\ResourceModel\Advert</argument>
-            <argument name="eventPrefix" xsi:type="string">sozo_productpageadvert_advert_collection</argument>
+            <argument name="mainTable" xsi:type="string">joseph_pdp_advert</argument>
+            <argument name="resourceModel" xsi:type="string">Joseph\ProductPageAdvert\Model\ResourceModel\Advert</argument>
+            <argument name="eventPrefix" xsi:type="string">joseph_productpageadvert_advert_collection</argument>
             <argument name="eventObject" xsi:type="string">advert_grid_collection</argument>
         </arguments>
     </virtualType>
@@ -15,16 +15,16 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="productpageadvert_advert_listing_data_source" xsi:type="string">Sozo\ProductPageAdvert\Model\ResourceModel\Advert\Grid\Collection</item>
-                <item name="productpageadvert_advert_form_data_source" xsi:type="string">Sozo\ProductPageAdvert\Model\ResourceModel\Advert\Collection</item>
+                <item name="productpageadvert_advert_listing_data_source" xsi:type="string">Joseph\ProductPageAdvert\Model\ResourceModel\Advert\Grid\Collection</item>
+                <item name="productpageadvert_advert_form_data_source" xsi:type="string">Joseph\ProductPageAdvert\Model\ResourceModel\Advert\Collection</item>
 
-                <item name="productpageadvert_advert_form_edit_data_source" xsi:type="string">Sozo\ProductPageAdvert\Model\ResourceModel\Advert\Collection</item>
+                <item name="productpageadvert_advert_form_edit_data_source" xsi:type="string">Joseph\ProductPageAdvert\Model\ResourceModel\Advert\Collection</item>
 
             </argument>
         </arguments>
     </type>
 
-    <type name="Sozo\ProductPageAdvert\Controller\Adminhtml\Advert\Upload">
+    <type name="Joseph\ProductPageAdvert\Controller\Adminhtml\Advert\Upload">
         <arguments>
             <argument name="uploaderFactory" xsi:type="object">Magento\MediaStorage\Model\File\UploaderFactory</argument>
             <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem</argument>

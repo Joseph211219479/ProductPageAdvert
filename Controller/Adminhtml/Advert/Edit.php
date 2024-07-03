@@ -1,11 +1,11 @@
 <?php
-namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Controller\Adminhtml\Advert;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
-use Sozo\ProductPageAdvert\Model\AdvertFactory;
-use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface ;
+use Joseph\ProductPageAdvert\Model\AdvertFactory;
+use Joseph\ProductPageAdvert\Api\AdvertRepositoryInterface ;
 
 
 class Edit extends Action
@@ -51,7 +51,7 @@ class Edit extends Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('Sozo_ProductPageAdvert::pdp');
+        $resultPage->setActiveMenu('Joseph_ProductPageAdvert::pdp');
         $resultPage->getConfig()->getTitle()->prepend(__('Edit Advert'));
 
         return $resultPage;

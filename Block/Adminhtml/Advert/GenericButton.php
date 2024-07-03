@@ -1,6 +1,6 @@
 <?php
 
-namespace Sozo\ProductPageAdvert\Block\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Block\Adminhtml\Advert;
 
 use Magento\Backend\Block\Widget\Context;
 

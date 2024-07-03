@@ -1,10 +1,10 @@
 <?php
-namespace Sozo\ProductPageAdvert\Model;
+namespace Joseph\ProductPageAdvert\Model;
 
-use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface;
-use Sozo\ProductPageAdvert\Model\ResourceModel\Advert as AdvertResource;
-use Sozo\ProductPageAdvert\Api\Data\AdvertInterface;
-use Sozo\ProductPageAdvert\Model\ResourceModel\Advert\CollectionFactory;
+use Joseph\ProductPageAdvert\Api\AdvertRepositoryInterface;
+use Joseph\ProductPageAdvert\Model\ResourceModel\Advert as AdvertResource;
+use Joseph\ProductPageAdvert\Api\Data\AdvertInterface;
+use Joseph\ProductPageAdvert\Model\ResourceModel\Advert\CollectionFactory;
 
 class AdvertRepository implements AdvertRepositoryInterface
 {

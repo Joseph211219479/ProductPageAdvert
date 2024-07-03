@@ -2,4 +2,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Sozo_ProductPageAdvert', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Joseph_ProductPageAdvert', __DIR__);

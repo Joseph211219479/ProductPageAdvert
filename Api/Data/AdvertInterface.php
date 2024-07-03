@@ -1,5 +1,5 @@
 <?php
-namespace Sozo\ProductPageAdvert\Api\Data;
+namespace Joseph\ProductPageAdvert\Api\Data;
 
 interface AdvertInterface
 {

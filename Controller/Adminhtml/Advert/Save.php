@@ -1,13 +1,13 @@
 <?php
 
-namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Controller\Adminhtml\Advert;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
-use Sozo\ProductPageAdvert\Model\AdvertFactory;
-use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface ;
+use Joseph\ProductPageAdvert\Model\AdvertFactory;
+use Joseph\ProductPageAdvert\Api\AdvertRepositoryInterface ;
 
 class Save extends Action
 {

@@ -18,8 +18,8 @@
 
     <settings>
         <buttons>
-            <button name="delete" class="Sozo\ProductPageAdvert\Block\Adminhtml\Advert\DeleteButton"/>
-            <button name="save" class="Sozo\ProductPageAdvert\Block\Adminhtml\Advert\SaveButton"/>
+            <button name="delete" class="Joseph\ProductPageAdvert\Block\Adminhtml\Advert\DeleteButton"/>
+            <button name="save" class="Joseph\ProductPageAdvert\Block\Adminhtml\Advert\SaveButton"/>
             <button name="back">
                 <url path="*/*/"/>
                 <class>back</class>

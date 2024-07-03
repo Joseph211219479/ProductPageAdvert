@@ -1,6 +1,6 @@
 <?php
 
-namespace Sozo\ProductPageAdvert\Ui\DataProvider\Advert;
+namespace Joseph\ProductPageAdvert\Ui\DataProvider\Advert;
 
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\Search\ReportingInterface;
@@ -8,7 +8,7 @@ use Magento\Framework\Api\Search\SearchCriteria;
 use Magento\Framework\Api\Search\SearchCriteriaBuilder;
 use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\View\Element\UiComponent\DataProvider\DataProviderInterface;
-use Sozo\ProductPageAdvert\Api\AdvertRepositoryInterface;
+use Joseph\ProductPageAdvert\Api\AdvertRepositoryInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\Filesystem\Io\File;
 

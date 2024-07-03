@@ -1,5 +1,5 @@
 <?php
-namespace Sozo\ProductPageAdvert\Block\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Block\Adminhtml\Advert;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Sozo\ProductPageAdvert\Controller\Adminhtml\Advert;
+namespace Joseph\ProductPageAdvert\Controller\Adminhtml\Advert;
 
 use Magento\Backend\App\Action\Context;
 use Magento\MediaStorage\Model\File\UploaderFactory;
-use Sozo\ProductPageAdvert\Model\ImageUploader;
+use Joseph\ProductPageAdvert\Model\ImageUploader;
 use Magento\Backend\App\Action;
 use Magento\Framework\Controller\ResultFactory;
 
